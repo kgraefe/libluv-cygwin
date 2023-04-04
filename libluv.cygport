@@ -1,0 +1,31 @@
+inherit cmake
+
+NAME="libluv"
+SRC_VERSION="1.44.2-1"
+VERSION="1.44.2-1"
+RELEASE=1
+
+CATEGORY="Libs"
+DESCRIPTION="Bare libuv bindings for lua"
+SUMMARY="Bare libuv bindings for lua"
+
+HOMEPAGE="https://github.com/luvit/luv"
+SRC_URI="https://github.com/luvit/luv/releases/download/${SRC_VERSION}/luv-${SRC_VERSION}.tar.gz"
+SRC_DIR="luv-${SRC_VERSION}"
+
+PKG_NAMES="libluv1 libluv-devel"
+
+CYGCMAKE_ARGS="-DLUA_BUILD_TYPE=System -DWITH_SHARED_LIBUV=ON -DBUILD_MODULE=OFF -DBUILD_SHARED_LIBS=ON"
+
+libluv1_CONTENTS="usr/bin/*.dll"
+libluv1_SUMMARY="${SUMMARY} - runtime"
+
+libluv_devel_CONTENTS="usr/lib usr/include usr/share"
+libluv_devel_SUMMARY="${SUMMARY} - devel"
+
+src_install()
+{
+  cd ${B}
+  ninja_install
+  dobin cygluv-1.dll 
+}
