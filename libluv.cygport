@@ -1,6 +1,7 @@
 inherit cmake
 
 NAME="libluv"
+LICENSE="Apache-2.0"
 SRC_VERSION="1.44.2-1"
 VERSION="1.44.2-1"
 RELEASE=1
