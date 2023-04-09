@@ -15,7 +15,7 @@ SRC_DIR="luv-${SRC_VERSION}"
 
 PKG_NAMES="libluv1 libluv-devel"
 
-BUILD_REQUIRES="cmake ninja libuv-devel"
+BUILD_REQUIRES="cmake ninja libuv-devel luajit luajit-devel"
 
 CYGCMAKE_ARGS="-DLUA_BUILD_TYPE=System -DWITH_SHARED_LIBUV=ON -DBUILD_MODULE=OFF -DBUILD_SHARED_LIBS=ON"
 
